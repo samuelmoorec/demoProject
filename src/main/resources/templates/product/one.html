@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Create</title>
+</head>
+<body>
+
+    <h1>Product</h1>
+
+    <h3 th:text="${product.getName()}"></h3>
+
+    <p th:text="${product.getDescription()}" ></p>
+
+    <p>$<span th:text="${product.getPrice()}"></span></p>
+
+    <img th:src="${product.getImg()}" alt="img">
+
+</body>
+</html>
