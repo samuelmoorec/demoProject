@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>Edit</title>
+    <div th:replace="partials :: header"></div>
 </head>
 <body>
+
+<h1>Edit Product</h1>
+
+<form th:action="'/product/'+ ${product.getId()} +'/edit'" th:method="POST">
+
+    <label for="name">Product Name</label>
+    <input type="text" th:value="${product.getName()}" id="name" name="product_name" >
+
+    <br>
+
+    <label for="price">Price</label>
+    <input type="number" th:value="${product.getPrice()}" id="price" name="product_price">
+
+    <br>
+
+    <label for="description">Description</label>
+    <input type="text" th:value="${product.getDescription()}" id="description" name="product_description">
+
+    <br>
+
+    <label for="image">Image</label>
+    <input type="text" th:value="${product.getImg()}" id="image" name="product_image_url">
+
+    <br>
+
+    <input type="submit" value="Create Product">
+
+</form>
 
 </body>
 </html>

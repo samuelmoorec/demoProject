@@ -54,13 +54,37 @@ public class ProductController {
     }
 
     @GetMapping("/product/{product_id}/edit")
-    public String editAProduct(@PathVariable long product_id){
+    public String editAProduct(@PathVariable long product_id, Model model){
+        model.addAttribute("product", productDao.getOne(product_id));
         return "product/edit";
     }
 
+    @PostMapping("/product/{product_id}/edit")
+    public String EditAProduct(
+            @PathVariable long product_id,
+            @RequestParam(name = "product_name") String productName,
+            @RequestParam(name = "product_description") String productDescription,
+            @RequestParam(name = "product_price") float productPrice,
+            @RequestParam(name = "product_image_url") String productImgUrl
+    ){
+        Product productToEdit = new Product(product_id,productName,productDescription,productPrice,productImgUrl);
+        productDao.save(productToEdit);
+
+        return "redirect:/product/" + product_id;
+    }
+
     @GetMapping("/product/{product_id}/delete")
-    public String deleteAProduct(@PathVariable long product_id){
+    public String deleteAProductForm(@PathVariable long product_id,Model model){
+        Product productToDelete = productDao.getOne(product_id);
+        model.addAttribute("product", productToDelete);
         return "product/delete";
+    }
+
+    @PostMapping("/product/{product_id}/delete")
+    public String deleteAProduct(@PathVariable long product_id){
+        productDao.deleteById(product_id);
+
+        return "redirect:/products";
     }
 
 }

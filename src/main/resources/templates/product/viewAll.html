@@ -3,14 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <title>Home</title>
+    <div th:replace="partials :: header"></div>
 </head>
 <body>
 
         <h1>Here is all my product</h1>
 
-        <div th:each="product : ${products}">
-            <p th:text="${product.getName()}" />
+        <div class="row" >
+            <div th:each="product : ${products}">
+
+                <div class="col s7 m3">
+                    <div class="card">
+
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" th:src="${product.getImg()}">
+                        </div>
+
+                        <div class="card-content">
+                            <span th:text="${product.getName()}" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more info</i></span>
+                            <p><a th:href="'/product/' + ${product.getId()}">This is a link</a></p>
+                        </div>
+
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p th:text="${product.getDescription()}"></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
+
+
 
 </body>
 </html>

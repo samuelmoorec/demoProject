@@ -2,18 +2,27 @@
 <head>
     <meta charset="UTF-8" />
     <title>Create</title>
+    <div th:replace="partials :: header"></div>
 </head>
 <body>
 
-    <h1>Product</h1>
+<div class="container">
 
-    <h3 th:text="${product.getName()}"></h3>
+    <!-- Page Content goes here -->
 
-    <p th:text="${product.getDescription()}" ></p>
+    <h1 class="center-align" >Product</h1>
 
-    <p>$<span th:text="${product.getPrice()}"></span></p>
+    <h3 class="center-align" th:text="${product.getName()}"></h3>
 
-    <img th:src="${product.getImg()}" alt="img">
+    <p class="center-align" th:text="${product.getDescription()}" ></p>
 
+    <p class="center-align" >$<span th:text="${product.getPrice()}"></span></p>
+
+    <img class="center-align" th:src="${product.getImg()}" alt="img">
+
+    <a class="center-align" th:href="'/product/'+ ${product.getId() +'/edit'}">Edit</a>
+
+    <a class="center-align" th:href="'/product/'+ ${product.getId() +'/delete'}">Delete</a>
+</div>
 </body>
 </html>
