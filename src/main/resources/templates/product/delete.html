@@ -6,7 +6,8 @@
     <div th:replace="partials :: header"></div>
 </head>
 <body>
-
+<div th:replace="partials :: navbar"></div>
+<div class="container">
 <form th:action="@{'/product/'+ ${product.getId()} +'/delete'}" method="POST">
 
     <h3>Are sure you want to delete this?!</h3>
@@ -18,6 +19,6 @@
     <input value="Delete" type="submit">
 
 </form>
-
+</div>
 </body>
 </html>

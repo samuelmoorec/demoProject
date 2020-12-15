@@ -5,6 +5,7 @@
     <div th:replace="partials :: header"></div>
 </head>
 <body>
+<div th:replace="partials :: navbar"></div>
 
 <div class="container">
 
@@ -18,7 +19,7 @@
 
     <p class="center-align" >$<span th:text="${product.getPrice()}"></span></p>
 
-    <img class="center-align" th:src="${product.getImg()}" alt="img">
+    <img class="center-align" width="200px" height="auto" th:src="${product.getImg()}" alt="img">
 
     <a class="center-align" th:href="'/product/'+ ${product.getId() +'/edit'}">Edit</a>
 

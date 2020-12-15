@@ -5,7 +5,8 @@
     <div th:replace="partials :: header"></div>
 </head>
 <body>
-
+<div th:replace="partials :: navbar"></div>
+<div class="container">
 <h1>Create Product</h1>
 
 <form th:action="@{/product/create}" th:method="POST">
@@ -25,14 +26,20 @@
 
     <br>
 
-    <label for="image">Image</label>
-    <input type="text" id="image" name="product_image_url">
+    <img id="imagePreview" src="" alt="" >
+    <input type="hidden" id="image" name="product_image_url">
+    <button id="addPicture">addPicture</button>
 
     <br>
 
     <input type="submit" value="Create Product">
 
 </form>
+</div>
 
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="/js/keys.js"></script>
+<script src="/js/filestack.js"></script>
 </body>
 </html>
