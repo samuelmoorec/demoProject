@@ -10,26 +10,26 @@
 
 <h1>Edit Product</h1>
 
-<form th:action="'/product/'+ ${product.getId()} +'/edit'" th:method="POST">
+<form th:action="'/product/'+ ${product.id} +'/edit'" th:method="POST">
 
     <label for="name">Product Name</label>
-    <input type="text" th:value="${product.getName()}" id="name" name="product_name" >
+    <input type="text" th:value="${product.name}" id="name" name="product_name" >
 
     <br>
 
     <label for="price">Price</label>
-    <input type="number" th:value="${product.getPrice()}" id="price" name="product_price">
+    <input type="number" th:value="${product.price}" id="price" name="product_price">
 
     <br>
 
     <label for="description">Description</label>
-    <input type="text" th:value="${product.getDescription()}" id="description" name="product_description">
+    <input type="text" th:value="${product.description}" id="description" name="product_description">
 
     <br>
 
 
     <img id="imagePreview" th:src="${product.img}" alt="" width="200px" height="auto">
-    <input type="hidden" id="image" th:value="${product.id}" name="product_image_url">
+    <input type="hidden" id="image" th:value="${product.img}" name="product_image_url">
     <button id="addPicture">change Picture</button>
 
     <br>
@@ -41,7 +41,7 @@
 
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="/js/keys.js"></script>
+<script src="/keys.js"></script>
 <script src="/js/filestack.js"></script>
 
 </form>

@@ -2,23 +2,24 @@ package com.example.demoproject.Controllers;
 
 import com.example.demoproject.Models.Product;
 import com.example.demoproject.Repos.ProductRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 public class ProductController {
 
+    @Autowired
     ProductRepo productDao;
 
-    ProductController(ProductRepo productDao){
-        this.productDao = productDao;
-    }
+    @Value("${filestack.key}")
+    private String fileStackApiKey;
+
+    ProductController(){}
 
     @GetMapping("/products")
     public String viewAllProducts(Model model){
@@ -43,6 +44,13 @@ public class ProductController {
         Product productInDB = productDao.save(productToAdd);
 
         return "redirect:/product/" + productInDB.getId();
+    }
+
+    @GetMapping("/keys.js")
+    @ResponseBody
+    public String apikey(){
+        System.out.println(fileStackApiKey);
+        return "const FileStackApiKey = \"" + fileStackApiKey + "\"";
     }
 
 

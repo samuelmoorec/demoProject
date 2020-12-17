@@ -13,17 +13,17 @@
 
     <h1 class="center-align" >Product</h1>
 
-    <h3 class="center-align" th:text="${product.getName()}"></h3>
+    <h3 class="center-align" th:text="${product.name}"></h3>
 
-    <p class="center-align" th:text="${product.getDescription()}" ></p>
+    <p class="center-align" th:text="${product.description}" ></p>
 
-    <p class="center-align" >$<span th:text="${product.getPrice()}"></span></p>
+    <p class="center-align" >$<span th:text="${product.price}"></span></p>
 
-    <img class="center-align" width="200px" height="auto" th:src="${product.getImg()}" alt="img">
+    <img class="center-align" width="200px" height="auto" th:src="${product.img}" alt="img">
 
-    <a class="center-align" th:href="'/product/'+ ${product.getId() +'/edit'}">Edit</a>
+    <a class="center-align" th:href="'/product/'+ ${product.id +'/edit'}">Edit</a>
 
-    <a class="center-align" th:href="'/product/'+ ${product.getId() +'/delete'}">Delete</a>
+    <a class="center-align" th:href="'/product/'+ ${product.id +'/delete'}">Delete</a>
 </div>
 </body>
 </html>
