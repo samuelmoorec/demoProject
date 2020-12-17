@@ -50,7 +50,7 @@ public class ProductController {
     @ResponseBody
     public String apikey(){
         System.out.println(fileStackApiKey);
-        return "const FileStackApiKey = \"" + fileStackApiKey + "\"";
+        return "const FileStackApiKey = `" + fileStackApiKey + "`";
     }
 
 
