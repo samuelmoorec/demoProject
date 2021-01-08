@@ -46,7 +46,7 @@ public class ProductController {
         return "redirect:/product/" + productInDB.getId();
     }
 
-    @GetMapping("/keys.js")
+    @RequestMapping(path = "/keys.js", produces = "application/javascript")
     @ResponseBody
     public String apikey(){
         System.out.println(fileStackApiKey);
