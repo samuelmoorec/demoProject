@@ -16,7 +16,7 @@ public class ProductController {
     @Autowired
     ProductRepo productDao;
 
-    @Value("${filestack.key}")
+    @Value("${filestack_key}")
     private String fileStackApiKey;
 
     ProductController(){}
